@@ -20,7 +20,7 @@ class LoginRoute extends Component {
       <section>
         <h2>Login</h2>
 
-        <div className='register-login-body'>
+        <div className='login-body'>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />

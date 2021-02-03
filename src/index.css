@@ -16,7 +16,33 @@ body {
   --font-size: calc(10px + 1vmin);
 }
 
-/*  */
+#signup-body {
+  background: linear-gradient(
+      to right bottom,
+      rgba(93, 154, 251, 0.366),
+      rgba(98, 210, 255, 0.287)
+  );
+  border-width: thin;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 80px;
+  padding: 20px 30px 30px;
+}
+
+#login-body {
+  background: linear-gradient(
+      to right bottom,
+      rgba(93, 154, 251, 0.366),
+      rgba(98, 210, 255, 0.287)
+  );
+  border-width: thin;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 80px;
+  padding: 20px 30px 30px;
+}
 
 .login-reg-info {
   margin: 25px 17px 29px;
@@ -32,6 +58,11 @@ h2 {
   width: 99%;
 }
 
+.login-body {
+  width: 93%;
+  margin: 0 auto;
+}
+
 #registration-name-input, 
 #registration-username-input, 
 #registration-password-input,
@@ -40,8 +71,9 @@ h2 {
   width: 99%;
   margin: 0 auto 9px;
   height: 30px;
-  border-radius: 6px;
-  border-width: thin; 
+  border-radius: 8px;
+  border-width: thin;
+  border-style: none;
 }
 
 #footer {
