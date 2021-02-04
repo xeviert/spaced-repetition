@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import LanguageApiService from '../../services/language-api-service'
 import '../../styling/dashboard.css'
 
@@ -62,7 +63,9 @@ class DashboardRoute extends Component {
 
         <div id='dashboard-footer'>
           <div id='total-correct'>Total correct answers: {this.getTotalCorrect()}</div>
+          <Link to='/learn'>
           <button id='start-btn'>Start Practicing</button>
+          </Link>
         </div>
 
       </section>
