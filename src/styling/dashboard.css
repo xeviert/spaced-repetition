@@ -50,3 +50,32 @@ li {
     font-size: 18px;
 }
 
+
+
+@media all and (min-width: 600px) {
+    #start-btn {
+        width: 30%;
+        font-size: 38px;
+    }
+
+    #dashboard-body {
+        width: 60%;
+        font-size: 30px;
+        padding: 15px 70px 30px 70px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    #total-correct {
+        font-size: 30px;
+    }
+
+    #dashboard-footer{
+        width: 60%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+}

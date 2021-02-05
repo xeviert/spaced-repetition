@@ -17,8 +17,8 @@ class LoginRoute extends Component {
 
   render() {
     return (
-      <section>
-        <h2>Login</h2>
+      <section id='login-page'>
+        <h2 id='login-title'>Login</h2>
 
         <div className='login-body'>
         <LoginForm

@@ -7,8 +7,38 @@ header {
     margin-left: 12px;
 }
 
+#username {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 .link {
     float: right;
     margin-bottom: 4px;
     margin-right: 29px;
+}
+
+
+
+@media all and (min-width: 600px) {
+
+    header {
+        padding: 20px 23% 60px;
+    }
+
+    #username {
+        font-size: 38px;
+        font-weight: bold;
+    }
+
+    .header-name {
+        font-size: 60px;
+    }
+
+    .link {
+        float: right;
+        font-size: 40px;
+    }
+
 }

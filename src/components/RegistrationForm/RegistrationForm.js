@@ -49,7 +49,7 @@ class RegistrationForm extends Component {
           </div>
 
           <div>
-            <Label htmlFor='registration-name-input'>
+            <Label htmlFor='registration-name-input' id='registration-label'>
               Enter your name<Required />
             </Label>
             <Input
@@ -60,7 +60,7 @@ class RegistrationForm extends Component {
             />
           </div>
           <div>
-            <Label htmlFor='registration-username-input'>
+            <Label htmlFor='registration-username-input' id='registration-label'>
               Choose a username<Required />
             </Label>
             <Input
@@ -70,7 +70,7 @@ class RegistrationForm extends Component {
             />
           </div>
           <div>
-            <Label htmlFor='registration-password-input'>
+            <Label htmlFor='registration-password-input' id='registration-label'>
               Choose a password<Required />
             </Label>
             <Input

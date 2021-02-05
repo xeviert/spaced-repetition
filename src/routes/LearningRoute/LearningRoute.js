@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import LanguageApiService from '../../services/language-api-service'
+import '../../styling/learning.css'
 
 class LearningRoute extends Component {
 
-  constructor(props) {
-    super(props)
-      this.state = {
+    state = {
         showResults: false,
-        nextWord: null,
-        score: null,
-        correctCount: null,
-        incorrectCount: null,
-        guess: '',
-        isCorrect: false,
-        translation: '',
+        correctCount: 0,
+        incorrectCount: 0,
+        nextWord: '',
+        score: 0,
+        isCorrect: true,
         original: '',
+        translation: '',
+        guess: '',
       }
-  }
 
   componentDidMount() {
     this.getFirstWord()
@@ -27,9 +25,11 @@ class LearningRoute extends Component {
       .then(res => {
         this.setState({
           nextWord: res.nextWord,
+          original: res.nextWord,
           score: res.score,
-          correctCount: res.correctCount,
           incorrectCount: res.incorrectCount,
+          correctCount: res.correctCount,
+          showResults: false,
         })
       })
   }
@@ -38,10 +38,10 @@ class LearningRoute extends Component {
     LanguageApiService.getCurrentWord()
       .then(res => {
         this.setState({
-          nextWord: res.nextWord,
-          score: res.score,
-          correctCount: res.correctCount,
+          original: res.nextWord,
           incorrectCount: res.incorrectCount,
+          correctCount: res.correctCount,
+          showNextWord: false,
         })
       })
   }
@@ -74,28 +74,31 @@ class LearningRoute extends Component {
     this.getNextWord();
   }
 
-
   showNextWord = () => {
     const { nextWord, incorrectCount, correctCount, score } = this.state
 
     return (
       <section>
 
-        <div>
-            Your total score is: {score}
-            <h2>Translate the word:</h2>
-            {nextWord}
+        <div id='top-section'>
+            <p id='total-score'>Your total score is: {score}</p>
+            <div id='translate-title'>Translate the word:</div>
+            <span id='current-word-display'>{nextWord}</span>
         </div>
 
-        <form onSubmit={this.handleGuess}>
-          <label>What's the translation for this word?</label>
-          <input type='text' name="guess-input" required></input>
-          <button type='submit'>Submit your answer</button>
-        </form> 
+        <div id="form-section">
+          <form onSubmit={this.handleGuess}>
+            <label>What's the translation for this word?</label>
+            <input type='text' id='learn-guess-input' name="guess-input" required></input><br/>
+            <button id='answer-sub-btn' type='submit'>Submit your answer</button>
+          </form>
+        </div> 
 
-        <section>
-          <div>
-            You have answered this word correctly {correctCount} times.
+        <section id='bottom-section'>
+          <div id='correct-count'>
+            You have answered this word correctly {correctCount} times.<br/>
+          </div>
+          <div id='incorrect-count'>
             You have answered this word incorrectly {incorrectCount} times.
           </div>
         </section>
@@ -105,25 +108,26 @@ class LearningRoute extends Component {
   }
 
   renderResults = () => {
-    let { isCorrect, guess, nextWord, original, translation, score } = this.state;
+    let { isCorrect, guess, original, translation, score } = this.state;
     return (
-        <section>
+        <section id='result-page'>
           {isCorrect ? (
 
           <div>
-            <h2>You were correct! :D</h2>
+            <div id='response-title'>You were correct! :D</div>
+            <span></span>
           </div>
 
           ) : (
 
           <div>
-            <h2>Good try, but not quite right :/</h2>
+            <div id='response-title'>Good try, but not quite right :/</div>
           </div>
 
           )}
-            <p>The correct translation for {original} was {translation} and you chose {guess}!</p>
-            <div>Your total score is: {score}</div>
-            <button onClick={this.handleNextWord}>Try another word!</button>
+            <p id='result-response'>The correct translation for <i> {original} </i> was {translation} and you chose  <i>{guess}</i> !</p>
+            <div id='result-score'>Your total score is: {score}</div>
+            <button id='next-word-btn' onClick={this.handleNextWord}>Try another word!</button>
 
         </section>
     )
