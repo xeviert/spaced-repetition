@@ -61,7 +61,8 @@ h2 {
 .register-login-body {
   display: flex;
   justify-content: center;
-  width: 99%;
+  margin-left: 5px;
+  width: 97%;
 }
 
 .login-body {

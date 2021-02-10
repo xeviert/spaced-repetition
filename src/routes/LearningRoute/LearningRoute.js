@@ -88,7 +88,7 @@ class LearningRoute extends Component {
 
         <div id="form-section">
           <form onSubmit={this.handleGuess}>
-            <label>What's the translation for this word?</label>
+            <label>What's the translation for this word?</label><br/>
             <input type='text' id='learn-guess-input' name="guess-input" required></input><br/>
             <button id='answer-sub-btn' type='submit'>Submit your answer</button>
           </form>
