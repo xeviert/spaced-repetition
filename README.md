@@ -1,2 +1,2 @@
-# Xevier
-# Spaced Repetition Capstone
+# Lango
+### Language Learning App
