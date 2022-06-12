@@ -1,5 +1,5 @@
 # Xevier
-# Spaced Repetition Capstone
+# Learning Italian Spaced Repetition
 
 ## Setup
 
