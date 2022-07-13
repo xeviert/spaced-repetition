@@ -1,58 +1,52 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import TokenService from '../../services/token-service'
-import UserContext from '../../contexts/UserContext'
-import './Header.css'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import UserContext from '../../contexts/UserContext';
+import './Header.css';
 
-class Header extends Component {
-  static contextType = UserContext
+function Header() {
+  const context = useContext(UserContext);
 
-  handleLogoutClick = () => {
-    this.context.processLogout()
-  }
+  const handleLogoutClick = () => {
+    context.processLogout();
+  };
 
-  renderLogoutLink() {
+  const renderLogoutLink = () => {
     return (
       <div>
-        <span id='username'>
-          {this.context.user.name}
-        </span>
+        <span id='username'>{context.user.name}</span>
         <nav>
-          <Link
-            className='link'
-            onClick={this.handleLogoutClick}
-            to='/login'>
+          <Link className='link' onClick={handleLogoutClick} to='/login'>
             Logout
           </Link>
         </nav>
       </div>
-    )
-  }
+    );
+  };
 
-  renderLoginLink() {
+  const renderLoginLink = () => {
     return (
       <nav>
-        <Link className='link' to='/login'>Login</Link>
-        {' '}
-        <Link className='link' to='/register'>Sign up</Link>
+        <Link className='link' to='/login'>
+          Login
+        </Link>{' '}
+        <Link className='link' to='/register'>
+          Sign up
+        </Link>
       </nav>
-    )
-  }
-
-  render() {
-    return (
-      <header>
-        <h1>
-          <Link className='header-name' to='/'>
-            Italo
-          </Link>
-        </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
-      </header>
     );
-  }
+  };
+
+  return (
+    <header>
+      <h1>
+        <Link className='header-name' to='/'>
+          Italo
+        </Link>
+      </h1>
+      {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}
+    </header>
+  );
 }
 
-export default Header
+export default Header;
