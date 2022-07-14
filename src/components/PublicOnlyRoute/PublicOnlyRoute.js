@@ -1,21 +1,23 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import UserContext from '../../contexts/UserContext'
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import UserContext from '../../contexts/UserContext';
 
-export default function PublicOnlyRoute({ component, ...props }) {
-  const Component = component
+const PublicOnlyRoute = () => {
   return (
-    <Route
-      {...props}
-      render={componentProps => (
-        <UserContext.Consumer>
-          {userContext =>
-            !!userContext.user.id
-              ? <Redirect to={'/'} />
-              : <Component {...componentProps} />
-          }
-        </UserContext.Consumer>
-      )}
-    />
-  )
-}
+    <UserContext.Consumer>
+      {(userContext) =>
+        !!userContext.user.id ? (
+          <Navigate to={'/'} />
+        ) : (
+          <Outlet
+            to={{
+              pathname: userContext.user.idle ? '/login' : '/login',
+            }}
+          />
+        )
+      }
+    </UserContext.Consumer>
+  );
+};
+
+export default PublicOnlyRoute;

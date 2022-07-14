@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 
 function RegistrationRoute() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleRegistrationSuccess = () => {
-    history.push('/login');
+    navigate('/login');
   };
 
   return (

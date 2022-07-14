@@ -26,13 +26,18 @@ export default class App extends Component {
         <main>
           {hasError && <p>There was an error! Oh no!</p>}
           <Routes>
-            <PrivateRoute exact path={'/'} element={<DashboardRoute />} />
-            <PrivateRoute path={'/learn'} element={<LearningRoute />} />
-            <PublicOnlyRoute
-              path={'/register'}
-              element={<RegistrationRoute />}
-            />
-            <PublicOnlyRoute path={'/login'} element={<LoginRoute />} />
+            <Route exact path='/' element={<PrivateRoute />}>
+              <Route exact path='/' element={<DashboardRoute />} />
+            </Route>
+            <Route exact path='/learn' element={<PrivateRoute />}>
+              <Route exact path='/learn' element={<LearningRoute />} />
+            </Route>
+            <Route exact path='/register' element={<PublicOnlyRoute />}>
+              <Route exact path='/register' element={<RegistrationRoute />} />
+            </Route>
+            <Route exact path='/login' element={<PublicOnlyRoute />}>
+              <Route exact path='/login' element={<LoginRoute />} />
+            </Route>
             <Route element={<NotFoundRoute />} />
           </Routes>
         </main>
