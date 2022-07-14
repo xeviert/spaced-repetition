@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from '../Header/Header';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
@@ -25,13 +25,16 @@ export default class App extends Component {
         <Header />
         <main>
           {hasError && <p>There was an error! Oh no!</p>}
-          <Switch>
-            <PrivateRoute exact path={'/'} component={DashboardRoute} />
-            <PrivateRoute path={'/learn'} component={LearningRoute} />
-            <PublicOnlyRoute path={'/register'} component={RegistrationRoute} />
-            <PublicOnlyRoute path={'/login'} component={LoginRoute} />
-            <Route component={NotFoundRoute} />
-          </Switch>
+          <Routes>
+            <PrivateRoute exact path={'/'} element={<DashboardRoute />} />
+            <PrivateRoute path={'/learn'} element={<LearningRoute />} />
+            <PublicOnlyRoute
+              path={'/register'}
+              element={<RegistrationRoute />}
+            />
+            <PublicOnlyRoute path={'/login'} element={<LoginRoute />} />
+            <Route element={<NotFoundRoute />} />
+          </Routes>
         </main>
       </div>
     );
