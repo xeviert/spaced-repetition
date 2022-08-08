@@ -1,35 +1,26 @@
-import React, { Component } from 'react'
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 
-class RegistrationRoute extends Component {
-  static defaultProps = {
-    history: {
-      push: () => {},
-    },
-  }
+function RegistrationRoute() {
+  const navigate = useNavigate();
 
-  handleRegistrationSuccess = () => {
-    const { history } = this.props
-    history.push('/login')
-  }
+  const handleRegistrationSuccess = () => {
+    navigate('/login');
+  };
 
-  render() {
-    return (
-      <section>
-        <p className='login-reg-info'>
-        Practice learning a language with the spaced repetition revision technique.
-        </p>
-        <h2 id='register-title'>Sign up</h2>
+  return (
+    <section>
+      <p className='login-reg-info'>
+        Practice learning Italian with the spaced repetition revision technique.
+      </p>
+      <h2 id='register-title'>Sign up</h2>
 
-        <div className='register-login-body'>
-        <RegistrationForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
-        </div>
-
-      </section>
-    );
-  }
+      <div className='register-login-body'>
+        <RegistrationForm onRegistrationSuccess={handleRegistrationSuccess} />
+      </div>
+    </section>
+  );
 }
 
-export default RegistrationRoute
+export default RegistrationRoute;

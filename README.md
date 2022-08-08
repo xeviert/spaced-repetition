@@ -1,5 +1,6 @@
-# Lango
-### Language Learning App
+# Xevier
+# Learning Italian
+
 
 ## https://spaced-repetition-plum.vercel.app/
 

@@ -1,34 +1,26 @@
-import React, { Component } from 'react'
-import LoginForm from '../../components/LoginForm/LoginForm'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
-class LoginRoute extends Component {
-  static defaultProps = {
-    location: {},
-    history: {
-      push: () => { },
-    },
-  }
+function LoginRoute() {
+  const navigate = useNavigate();
 
-  handleLoginSuccess = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
-    history.push(destination)
-  }
+  const handleLoginSuccess = () => {
+    navigate('/');
+  };
 
-  render() {
-    return (
-      <section id='login-page'>
-        <h2 id='login-title'>Login</h2>
-        <div id='demo-cred'><b>DEMO</b><br></br> Username: admin | Password: pass</div>
-        <div className='login-body'>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
-        </div>
-
-      </section>
-    );
-  }
+  return (
+    <section id='login-page'>
+      <h2 id='login-title'>Login</h2>
+      <div id='demo-cred'>
+        <b>DEMO</b>
+        <br></br> Username: admin | Password: pass
+      </div>
+      <div className='login-body'>
+        <LoginForm onLoginSuccess={handleLoginSuccess} />
+      </div>
+    </section>
+  );
 }
 
-export default LoginRoute
+export default LoginRoute;
