@@ -1,10 +1,10 @@
 # Xevier
-# Learning Italian
+# Learning Languages
 
 
 ## https://spaced-repetition-plum.vercel.app/
 
-This project uses spaced repetition to teach Italian. After creating an account, the user guesses the translation for the Italian word and the next page shows if they got the word right or wrong. 
+This project uses spaced repetition to teach French. After creating an account, the user guesses the translation for the French word and the next page shows if they got the word right or wrong. 
 
 <img src="public\images\spaced-rep.png" />
 

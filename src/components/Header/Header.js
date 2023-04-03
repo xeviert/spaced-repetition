@@ -41,7 +41,7 @@ function Header() {
     <header>
       <h1>
         <Link className='header-name' to='/'>
-          Italo
+          Lango
         </Link>
       </h1>
       {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}

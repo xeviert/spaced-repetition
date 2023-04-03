@@ -12,7 +12,7 @@ function RegistrationRoute() {
   return (
     <section>
       <p className='login-reg-info'>
-        Practice learning Italian with the spaced repetition revision technique.
+        Practice learning French with the spaced repetition revision technique.
       </p>
       <h2 id='register-title'>Sign up</h2>
 
