@@ -28,17 +28,17 @@ header {
     }
 
     #username {
-        font-size: 38px;
+        font-size: 28px;
         font-weight: bold;
     }
 
     .header-name {
-        font-size: 60px;
+        font-size: 45px;
     }
 
     .link {
         float: right;
-        font-size: 40px;
+        font-size: 28px;
     }
 
 }

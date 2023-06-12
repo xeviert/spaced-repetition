@@ -29,10 +29,11 @@ function Header() {
       <nav>
         <Link className='link' to='/login'>
           Login
-        </Link>{' '}
+        </Link>
+        {/* {' '}
         <Link className='link' to='/register'>
           Sign up
-        </Link>
+        </Link> */}
       </nav>
     );
   };

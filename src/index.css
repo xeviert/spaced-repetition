@@ -17,11 +17,9 @@ body {
 }
 
 #signup-body {
-  background: linear-gradient(
-      to right bottom,
+  background: linear-gradient(to right bottom,
       rgba(93, 154, 251, 0.366),
-      rgba(98, 210, 255, 0.287)
-  );
+      rgba(98, 210, 255, 0.287));
   border-width: thin;
   border-radius: 2rem;
   display: flex;
@@ -36,11 +34,9 @@ body {
 }
 
 #login-body {
-  background: linear-gradient(
-      to right bottom,
+  background: linear-gradient(to right bottom,
       rgba(93, 154, 251, 0.366),
-      rgba(98, 210, 255, 0.287)
-  );
+      rgba(98, 210, 255, 0.287));
   border-width: thin;
   border-radius: 2rem;
   display: flex;
@@ -55,7 +51,7 @@ body {
 }
 
 h2 {
-  margin: 25px;
+  margin: 15px;
 }
 
 .register-login-body {
@@ -70,8 +66,8 @@ h2 {
   margin: 0 auto;
 }
 
-#registration-name-input, 
-#registration-username-input, 
+#registration-name-input,
+#registration-username-input,
 #registration-password-input,
 #login-username-input,
 #login-password-input {
@@ -88,7 +84,8 @@ h2 {
   margin-top: 12px;
 }
 
-#registration-btn, #login-btn {
+#registration-btn,
+#login-btn {
   width: 30%;
   margin-bottom: 14px;
   padding: 9px;
@@ -96,7 +93,7 @@ h2 {
   border: none;
   background: rgb(119, 118, 118);
   color: rgb(255, 255, 255);
-  font-size: 18px;
+  font-size: 12px;
 }
 
 
@@ -108,56 +105,59 @@ h2 {
   }
 
   h2 {
-    font-size: 55px;
+    font-size: 35px;
     margin-top: 60px;
     margin-bottom: 60px;
     text-align: center;
   }
 
   #demo-cred {
-    font-size: 30px;
+    font-size: 22px;
+    margin-top: 20px;
     margin-bottom: 25px;
   }
 
-  #registration-name-input, 
-  #registration-username-input, 
+  #registration-name-input,
+  #registration-username-input,
   #registration-password-input,
   #login-username-input,
   #login-password-input {
-  height: 50px;
+    height: 50px;
   }
 
   Input {
-  font-size: 28px;
+    font-size: 28px;
   }
 
-#signup-body {
-  width: 50%;
-}
+  #signup-body {
+    width: 50%;
+  }
 
-#registration-btn, #login-btn {
-  width: 25%;
-  margin-bottom: 14px;
-  padding: 9px;
-  border-radius: 8px;
-  border: none;
-  background: rgb(119, 118, 118);
-  color: rgb(255, 255, 255);
-  font-size: 38px;
-}
+  #registration-btn,
+  #login-btn {
+    width: 25%;
+    margin-bottom: 14px;
+    padding: 9px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(119, 118, 118);
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+  }
 
-.login-reg-info {
-  font-size: 30px;
-  text-align: center;
-  margin-top: 50px;
-}
+  .login-reg-info {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
 
-#login-username-label, #registration-label {
-  font-size: 38px;
-}
+  #login-username-label,
+  #registration-label {
+    font-size: 25px;
+  }
 
-#login-link {
-  font-size: 30px;
-}
+  #login-link {
+    font-size: 22px;
+  }
 
 }

@@ -1,10 +1,8 @@
 #top-section {
     width: 88%;
-    background: linear-gradient(
-        to right bottom,
-        rgba(93, 154, 251, 0.366),
-        rgba(98, 210, 255, 0.287)
-    );
+    background: linear-gradient(to right bottom,
+            rgba(93, 154, 251, 0.366),
+            rgba(98, 210, 255, 0.287));
     border-width: thin;
     border-radius: 2rem;
     display: flex;
@@ -15,11 +13,9 @@
 
 #result-page {
     width: 88%;
-    background: linear-gradient(
-        to right bottom,
-        rgba(93, 154, 251, 0.366),
-        rgba(98, 210, 255, 0.287)
-    );
+    background: linear-gradient(to right bottom,
+            rgba(93, 154, 251, 0.366),
+            rgba(98, 210, 255, 0.287));
     border-width: thin;
     border-radius: 2rem;
     display: flex;
@@ -47,11 +43,9 @@
     right: 0;
     text-align: center;
 
-    background: linear-gradient(
-        to right bottom,
-        rgba(93, 154, 251, 0.366),
-        rgba(98, 210, 255, 0.287)
-    );
+    background: linear-gradient(to right bottom,
+            rgba(93, 154, 251, 0.366),
+            rgba(98, 210, 255, 0.287));
     border-width: thin;
     border-radius: 2rem;
     display: flex;
@@ -100,17 +94,16 @@
     text-align: center;
 }
 
-#correct-count, #incorrect-count {
+#correct-count,
+#incorrect-count {
     padding-bottom: 9px;
 }
 
 #bottom-section {
     width: 95%;
-    background: linear-gradient(
-        to right bottom,
-        rgba(93, 154, 251, 0.366),
-        rgba(98, 210, 255, 0.287)
-    );
+    background: linear-gradient(to right bottom,
+            rgba(93, 154, 251, 0.366),
+            rgba(98, 210, 255, 0.287));
     border-width: thin;
     border-radius: 15px;
     display: flex;
@@ -129,32 +122,32 @@
         width: 60%;
     }
 
-    #translate-title{
-        font-size: 55px;
+    #translate-title {
+        font-size: 30px;
         margin-left: 80px;
         margin-top: 25px;
         margin-bottom: 40px;
     }
 
     #total-score {
-        font-size: 35px;
+        font-size: 30px;
         /* padding-left: 70px; */
         text-align: center;
     }
 
     #current-word-display {
-        font-size: 50px;
+        font-size: 40px;
         padding-bottom: 25px;
     }
 
     #bottom-section {
-        font-size: 30px;
+        font-size: 25px;
         width: 60%;
         padding: 40px 0px 30px 0px;
         text-align: center;
     }
 
-    #correct-count{
+    #correct-count {
         padding-bottom: 20px;
     }
 
@@ -164,7 +157,7 @@
         margin-top: 15px;
         padding: 9px;
         border-radius: 8px;
-        font-size: 38px;
+        font-size: 28px;
     }
 
     #form-section {
@@ -184,7 +177,7 @@
     }
 
     label {
-        font-size: 38px;
+        font-size: 30px;
     }
 
 
@@ -197,20 +190,20 @@
         margin-bottom: 25px;
         margin-top: 25px;
         padding: 5px;
-        font-size: 38px;
+        font-size: 30px;
     }
 
     #response-title {
-        font-size: 55px;
+        font-size: 35px;
         margin: 30px auto 30px;
         text-align: center;
     }
 
     #result-response {
-        font-size: 29px;
+        font-size: 30px;
         text-align: center;
     }
-    
+
     #result-score {
         font-size: 30px;
         padding-bottom: 15px;

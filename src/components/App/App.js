@@ -32,9 +32,9 @@ export default class App extends Component {
             <Route exact path='/learn' element={<PrivateRoute />}>
               <Route exact path='/learn' element={<LearningRoute />} />
             </Route>
-            <Route exact path='/register' element={<PublicOnlyRoute />}>
+            {/* <Route exact path='/register' element={<PublicOnlyRoute />}>
               <Route exact path='/register' element={<RegistrationRoute />} />
-            </Route>
+            </Route> */}
             <Route exact path='/login' element={<PublicOnlyRoute />}>
               <Route exact path='/login' element={<LoginRoute />} />
             </Route>
