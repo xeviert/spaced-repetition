@@ -11,41 +11,29 @@ function Header() {
     context.processLogout();
   };
 
-  const renderLogoutLink = () => {
-    return (
-      <div>
-        <span id='username'>{context.user.name}</span>
-        <nav>
-          <Link className='link' onClick={handleLogoutClick} to='/login'>
-            Logout
-          </Link>
-        </nav>
-      </div>
-    );
-  };
-
-  const renderLoginLink = () => {
-    return (
-      <nav>
-        <Link className='link' to='/login'>
-          Login
-        </Link>
-        {/* {' '}
-        <Link className='link' to='/register'>
-          Sign up
-        </Link> */}
-      </nav>
-    );
-  };
-
   return (
-    <header>
-      <h1>
-        <Link className='header-name' to='/'>
+    <header className="header">
+      <h1 className="header-title">
+        <Link className="header-link" to="/">
           Lango
         </Link>
       </h1>
-      {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}
+      {TokenService.hasAuthToken() ? (
+        <div className="user-info">
+          <span className="username">{context.user.name}</span>
+          <nav className="nav">
+            <Link className="nav-link" onClick={handleLogoutClick} to="/login">
+              Logout
+            </Link>
+          </nav>
+        </div>
+      ) : (
+        <nav className="nav">
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </nav>
+      )}
     </header>
   );
 }

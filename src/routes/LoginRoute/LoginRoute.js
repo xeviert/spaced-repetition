@@ -10,13 +10,8 @@ function LoginRoute() {
   };
 
   return (
-    <section id='login-page'>
-      <h2 id='login-title'>Login</h2>
-      <div id='demo-cred'>
-        <b>DEMO</b>
-        <br></br> Username: demo | Password: Password713$
-      </div>
-      <div className='login-body'>
+    <section>
+      <div>
         <LoginForm onLoginSuccess={handleLoginSuccess} />
       </div>
     </section>

@@ -1,6 +1,6 @@
 import 'unfetch/polyfill'
 import React from 'react'
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from './contexts/UserContext'
 import App from './components/App/App'

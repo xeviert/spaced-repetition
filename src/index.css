@@ -12,152 +12,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Define CSS variables in the global scope */
 :root {
-  --font-size: calc(10px + 1vmin);
+  --primary-bg: rgba(172, 255, 197, 0.55);
+  --secondary-bg: linear-gradient(to right bottom, rgba(93, 154, 251, 0.366), rgba(98, 210, 255, 0.287));
+  --primary-color: #333;
+  --link-color: #007BFF;
+  --header-padding: 20px;
+  --header-padding-lg: 20px 23%;
+  --header-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#signup-body {
-  background: linear-gradient(to right bottom,
-      rgba(93, 154, 251, 0.366),
-      rgba(98, 210, 255, 0.287));
-  border-width: thin;
+/* Common styles for cards */
+.card {
+  background: var(--secondary-bg);
   border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto 80px;
   padding: 20px 30px 30px;
-}
-
-#demo-cred {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-#login-body {
-  background: linear-gradient(to right bottom,
-      rgba(93, 154, 251, 0.366),
-      rgba(98, 210, 255, 0.287));
-  border-width: thin;
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto 80px;
-  padding: 20px 30px 30px;
-}
-
-
-.login-reg-info {
-  margin: 25px 17px 29px;
-}
-
-h2 {
-  margin: 15px;
-}
-
-.register-login-body {
-  display: flex;
-  justify-content: center;
-  margin-left: 5px;
-  width: 97%;
-}
-
-.login-body {
-  width: 93%;
-  margin: 0 auto;
-}
-
-#registration-name-input,
-#registration-username-input,
-#registration-password-input,
-#login-username-input,
-#login-password-input {
-  width: 99%;
-  margin: 0 auto 9px;
-  height: 30px;
-  border-radius: 8px;
-  border-width: thin;
-  border-style: none;
-}
-
-#footer {
-  text-align: center;
-  margin-top: 12px;
-}
-
-#registration-btn,
-#login-btn {
-  width: 30%;
-  margin-bottom: 14px;
-  padding: 9px;
-  border-radius: 8px;
-  border: none;
-  background: rgb(119, 118, 118);
-  color: rgb(255, 255, 255);
-  font-size: 12px;
-}
-
-
-
-@media all and (min-width: 600px) {
-
-  .login-body {
-    width: 50%;
-  }
-
-  h2 {
-    font-size: 35px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
-  #demo-cred {
-    font-size: 22px;
-    margin-top: 20px;
-    margin-bottom: 25px;
-  }
-
-  #registration-name-input,
-  #registration-username-input,
-  #registration-password-input,
-  #login-username-input,
-  #login-password-input {
-    height: 50px;
-  }
-
-  Input {
-    font-size: 28px;
-  }
-
-  #signup-body {
-    width: 50%;
-  }
-
-  #registration-btn,
-  #login-btn {
-    width: 25%;
-    margin-bottom: 14px;
-    padding: 9px;
-    border-radius: 8px;
-    border: none;
-    background: rgb(119, 118, 118);
-    color: rgb(255, 255, 255);
-    font-size: 22px;
-  }
-
-  .login-reg-info {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 50px;
-  }
-
-  #login-username-label,
-  #registration-label {
-    font-size: 25px;
-  }
-
-  #login-link {
-    font-size: 22px;
-  }
-
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

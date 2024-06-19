@@ -1,5 +1,5 @@
 const config = {
-  API_ENDPOINT: 'http://localhost:8000/api',
+  API_ENDPOINT: 'http://localhost:8080/api',
   TOKEN_KEY: 'spaced-repetition-auth-token',
 };
 
