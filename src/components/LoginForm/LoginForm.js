@@ -26,6 +26,7 @@ function LoginForm() {
         username.value = '';
         password.value = '';
         context.processLogin(res.authToken);
+        setError(null);
       })
       .catch((res) => {
         setError({ error: res.error });
@@ -40,8 +41,9 @@ function LoginForm() {
             <b>DEMO</b>
             <br /> Username: admin | Password: pass
           </div>
-          <div role='alert'>{error && <p>{error}</p>}</div>
-          <div>
+          <div role='alert' className='alert'>
+            {error && <p>{error}</p>}
+          </div>          <div>
             <Label htmlFor='login-username-input' className='login-username-label'>
               Username
             </Label>

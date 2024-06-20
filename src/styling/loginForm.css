@@ -68,11 +68,11 @@ input[type="password"] {
 }
 
 .login-btn:hover {
-  background-color: darken(var(--primary-color), 10%);
+  background-color: black;
 }
 
 /* Alert styling */
-[role="alert"] {
+.alert {
   color: red;
   margin-bottom: 10px;
   font-weight: bold;

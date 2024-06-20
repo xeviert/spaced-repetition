@@ -12,7 +12,7 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className="header-navbar">
       <h1 className="header-title">
         <Link className="header-link" to="/">
           Lango

@@ -11,9 +11,7 @@ function LoginRoute() {
 
   return (
     <section>
-      <div>
-        <LoginForm onLoginSuccess={handleLoginSuccess} />
-      </div>
+      <LoginForm onLoginSuccess={handleLoginSuccess} />
     </section>
   );
 }

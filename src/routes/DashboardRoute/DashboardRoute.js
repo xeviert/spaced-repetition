@@ -55,20 +55,20 @@ class DashboardRoute extends Component {
     const { practiceWords } = this.state;
 
     return (
-      <section>
+      <section className='dashboard-section'>
         <h2>Your language: {this.getLanguage()}</h2>
 
-        <div id='dashboard-body'>
+        <div className='dashboard-body'>
           <h3>Words to practice</h3>
           <ul>{practiceWords}</ul>
         </div>
 
-        <div id='dashboard-footer'>
-          <div id='total-correct'>
+        <div className='dashboard-footer'>
+          <div className='total-correct'>
             Total correct answers: {this.getTotalCorrect()}
           </div>
           <Link to='/learn'>
-            <button id='start-btn'>Start Practicing</button>
+            <button className='start-btn'>Start Practicing</button>
           </Link>
         </div>
       </section>

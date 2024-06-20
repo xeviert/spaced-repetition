@@ -1,46 +1,113 @@
-li {
-    list-style-type: none;
+/* General styles for the section */
+.dashboard-section {
+    padding: 20px;
+    background: var(--secondary-bg);
+    /* Light grey background for contrast */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    margin: 20px auto;
+    /* Centered section */
+    max-width: 500px;
+    /* Maximum width for larger screens */
 }
 
-#dashboard-body {
-    width: 80%;
-    margin: 0 auto;
-    background: linear-gradient(to right bottom,
-            rgba(114, 168, 255, 0.166),
-            rgba(98, 210, 255, 0.187));
-    border-width: thin;
-    border-radius: 2rem;
-    margin: 0 auto 40px;
-    padding: 10px 10px 20px;
+/* Header styles */
+section h2 {
+    font-size: 2rem;
+    /* Large font size for prominence */
+    margin-bottom: 20px;
+    /* Space below header */
+    color: #333;
+    /* Dark text color */
 }
 
-#dashboard-footer {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto 30px;
-    background: linear-gradient(to right bottom,
-            rgba(114, 168, 255, 0.166),
-            rgba(98, 210, 255, 0.187));
-    border-width: thin;
-    border-radius: 2rem;
-    padding: 20px 0 25px;
+/* Dashboard body styles */
+.dashboard-body {
+    padding: 20px;
+    /* Internal padding for spacing */
+    background: #fff;
+    /* White background for clarity */
+    border-radius: 10px;
+    /* Rounded corners */
+    margin-bottom: 20px;
+    /* Space below body */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
-.answer-count {
+.dashboard-body h3 {
+    font-size: 1.5rem;
+    /* Medium font size */
+    margin-bottom: 15px;
+    /* Space below subheader */
+    color: #555;
+    /* Medium text color */
+}
+
+.dashboard-body ul {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+}
+
+.dashboard-body li {
+    padding: 10px;
+    /* Internal padding for items */
+    border-bottom: 1px solid #eee;
+    /* Light border for separation */
+}
+
+/* Footer styles */
+.dashboard-footer {
     display: flex;
-    justify-content: center;
+    /* Flexbox layout for alignment */
+    justify-content: space-between;
+    /* Space between elements */
+    align-items: center;
+    /* Center items vertically */
+    padding: 10px 20px;
+    /* Internal padding for spacing */
+    background: white;
+    /* Light green background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: var(--header-shadow);
+    /* Shadow for depth */
 }
 
-#total-correct {
-    font-weight: bold;
+.dashboard-footer .total-correct {
+    font-size: 1rem;
+    /* Standard font size */
+    color: var(--primary-color);
+    /* Primary text color */
 }
 
-#start-btn {
-    width: 45%;
-    margin-top: 15px;
-    padding: 9px;
-    border-radius: 8px;
+/* Button styles */
+.start-btn {
+    padding: 10px 20px;
+    /* Internal padding for button */
+    font-size: 1rem;
+    /* Standard font size */
     border: none;
-    background: rgb(119, 118, 118);
-    color: rgb(255, 255, 255);
+    /* Remove border */
+    border-radius: 5px;
+    /* Rounded corners */
+    background-color: var(--primary-color);
+    /* Primary background color */
+    color: #fff;
+    /* White text color */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+}
+
+.start-btn:hover {
+    background-color: black;
+    /* Darker background on hover */
 }
