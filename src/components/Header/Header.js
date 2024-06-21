@@ -13,27 +13,29 @@ function Header() {
 
   return (
     <header className="header-navbar">
-      <h1 className="header-title">
-        <Link className="header-link" to="/">
-          Lango
-        </Link>
-      </h1>
-      {TokenService.hasAuthToken() ? (
-        <div className="user-info">
-          <span className="username">{context.user.name}</span>
+      <div className='navbar-contents'>
+        <h1 className="header-title">
+          <Link className="header-link" to="/">
+            Lango
+          </Link>
+        </h1>
+        {TokenService.hasAuthToken() ? (
+          <div className="user-info">
+            <span className="username">{context.user.name}</span>
+            <nav className="nav">
+              <Link className="nav-link" onClick={handleLogoutClick} to="/login">
+                Logout
+              </Link>
+            </nav>
+          </div>
+        ) : (
           <nav className="nav">
-            <Link className="nav-link" onClick={handleLogoutClick} to="/login">
-              Logout
+            <Link className="nav-link" to="/login">
+              Login
             </Link>
           </nav>
-        </div>
-      ) : (
-        <nav className="nav">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
-        </nav>
-      )}
+        )}
+      </div>
     </header>
   );
 }

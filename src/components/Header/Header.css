@@ -1,13 +1,18 @@
 .header-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: var(--header-padding);
     background-color: rgba(172, 255, 197, 0.55);
     color: var(--primary-color);
     width: 100%;
     box-sizing: border-box;
     box-shadow: var(--header-shadow);
+}
+
+.navbar-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .header-title {

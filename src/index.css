@@ -16,7 +16,7 @@ body {
 :root {
   --primary-bg: rgba(172, 255, 197, 0.55);
   --secondary-bg: linear-gradient(to right bottom, rgba(93, 154, 251, 0.366), rgba(98, 210, 255, 0.287));
-  --primary-color: #333;
+  --primary-color: #606060;
   --link-color: #007BFF;
   --header-padding: 20px;
   --header-padding-lg: 20px 23%;

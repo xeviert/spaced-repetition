@@ -1,105 +1,113 @@
-#top-section {
-    width: 88%;
-    background: linear-gradient(to right bottom,
-            rgba(93, 154, 251, 0.366),
-            rgba(98, 210, 255, 0.287));
-    border-width: thin;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto 15px;
-    padding: 20px 10px 20px;
+.learning-route-body {
+    padding: 20px;
+    background: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 80px auto;
+    max-width: 500px;
 }
 
-#result-page {
-    width: 88%;
-    background: linear-gradient(to right bottom,
-            rgba(93, 154, 251, 0.366),
-            rgba(98, 210, 255, 0.287));
-    border-width: thin;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto 15px;
-    padding: 20px 10px 20px;
-}
-
-#current-word-display {
+.top-section {
     text-align: center;
-    font-style: italic;
+    margin-bottom: 20px;
 }
 
-#form-section {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 20px;
-    width: 88%;
-    left: 0;
-    right: 0;
+.total-score {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.translate-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.current-word-display {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-section {
     text-align: center;
-
-    background: linear-gradient(to right bottom,
-            rgba(93, 154, 251, 0.366),
-            rgba(98, 210, 255, 0.287));
-    border-width: thin;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 30px;
-    padding: 20px 30px 20px;
+    margin-bottom: 20px;
 }
 
-#learn-guess-input {
-    width: 99%;
-    margin: 5px auto 9px;
-    height: 30px;
-    border-radius: 8px;
-    border-width: thin;
-    border-style: none;
+label {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: block;
 }
 
-#answer-sub-btn {
-    width: 90%;
-    margin-top: 6px;
-    padding: 5px;
-    border-radius: 8px;
+.learn-guess-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.answer-sub-btn {
+    padding: 10px 20px;
     border: none;
-    background: rgb(119, 118, 118);
-    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#next-word-btn {
-    width: 70%;
-    margin: 16px auto 0;
-    padding: 9px;
-    border-radius: 8px;
+.answer-sub-btn:hover {
+    background-color: black;
+}
+
+.bottom-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.correct-count,
+.incorrect-count {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.result-page {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.response-title {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.result-response {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.result-score {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.next-word-btn {
+    padding: 10px 20px;
     border: none;
-    background: rgb(119, 118, 118);
-    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#response-title {
-    text-align: center;
-}
-
-#result-score {
-    text-align: center;
-}
-
-#correct-count,
-#incorrect-count {
-    padding-bottom: 9px;
-}
-
-#bottom-section {
-    width: 95%;
-    background: linear-gradient(to right bottom,
-            rgba(93, 154, 251, 0.366),
-            rgba(98, 210, 255, 0.287));
-    border-width: thin;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    margin: 5px auto 15px;
-    padding: 20px 5px 15px;
+.next-word-btn:hover {
+    background-color: darken(var(--primary-color), 10%);
 }

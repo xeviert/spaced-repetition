@@ -76,35 +76,35 @@ class LearningRoute extends Component {
 
     return (
       <section>
-        <div id='top-section'>
-          <p id='total-score'>Your total score is: {score}</p>
-          <div id='translate-title'>Translate the word:</div>
-          <span id='current-word-display'>{nextWord}</span>
+        <div className='top-section'>
+          <p className='total-score'>Your total score is: {score}</p>
+          <div className='translate-title'>Translate the word:</div>
+          <span className='current-word-display'>{nextWord}</span>
         </div>
 
-        <div id='form-section'>
+        <div className='form-section'>
           <form onSubmit={this.handleGuess}>
             <label>What's the translation for this word?</label>
             <br />
             <input
               type='text'
-              id='learn-guess-input'
+              className='learn-guess-input'
               name='guess-input'
               required
             ></input>
             <br />
-            <button id='answer-sub-btn' type='submit'>
+            <button className='answer-sub-btn' type='submit'>
               Submit your answer
             </button>
           </form>
         </div>
 
-        <section id='bottom-section'>
-          <div id='correct-count'>
+        <section className='bottom-section'>
+          <div className='correct-count'>
             You have answered this word correctly {correctCount} times.
             <br />
           </div>
-          <div id='incorrect-count'>
+          <div className='incorrect-count'>
             You have answered this word incorrectly {incorrectCount} times.
           </div>
         </section>
@@ -115,23 +115,23 @@ class LearningRoute extends Component {
   renderResults = () => {
     let { isCorrect, guess, original, translation, score } = this.state;
     return (
-      <section id='result-page'>
+      <section className='result-page'>
         {isCorrect ? (
           <div>
-            <div id='response-title'>You were correct! :D</div>
+            <div className='response-title'>You were correct! :D</div>
             <span></span>
           </div>
         ) : (
           <div>
-            <div id='response-title'>Good try, but not quite right :/</div>
+            <div className='response-title'>Good try, but not quite right :/</div>
           </div>
         )}
-        <p id='result-response'>
+        <p className='result-response'>
           The correct translation for <i> {original} </i> was {translation} and
           you chose <i>{guess}</i> !
         </p>
-        <div id='result-score'>Your total score is: {score}</div>
-        <button id='next-word-btn' onClick={this.handleNextWord}>
+        <div className='result-score'>Your total score is: {score}</div>
+        <button className='next-word-btn' onClick={this.handleNextWord}>
           Try another word!
         </button>
       </section>
@@ -141,7 +141,7 @@ class LearningRoute extends Component {
   render() {
     let { showResults } = this.state;
     return (
-      <section>
+      <section className='learning-route-body'>
         {showResults ? this.renderResults() : this.showNextWord()}
       </section>
     );
