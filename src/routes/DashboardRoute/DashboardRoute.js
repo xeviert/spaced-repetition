@@ -58,11 +58,6 @@ class DashboardRoute extends Component {
       <section className='dashboard-section'>
         <h2>Your language: {this.getLanguage()}</h2>
 
-        <div className='dashboard-body'>
-          <h3>Words to practice</h3>
-          <ul>{practiceWords}</ul>
-        </div>
-
         <div className='dashboard-footer'>
           <div className='total-correct'>
             Total correct answers: {this.getTotalCorrect()}
@@ -71,6 +66,11 @@ class DashboardRoute extends Component {
             <button className='start-btn'>Start Practicing</button>
           </Link>
         </div>
+
+        {/* <div className='dashboard-body'>
+          <h3>Words to practice</h3>
+          <ul>{practiceWords}</ul>
+        </div> */}
       </section>
     );
   }
