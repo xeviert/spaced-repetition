@@ -17,7 +17,7 @@ class DashboardRoute extends Component {
     LanguageApiService.getLanguageAndWords()
       .then(data => {
         if(data === undefined) {
-          this.props.history.push('/login')
+          return
         } else this.setState({
             language: data.language,
         })

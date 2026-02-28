@@ -1,14 +1,9 @@
 import config from '../config'
-import TokenService from './token-service'
 
 const LanguageApiService = {
 
     getLanguageAndWords() {
-        return fetch(`${config.API_ENDPOINT}/language`, {
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-            },
-        })
+        return fetch(`${config.API_ENDPOINT}/language`)
         .then(res => {
             if(!res.ok) {
                 return res.json().then(e => {
@@ -20,11 +15,7 @@ const LanguageApiService = {
     },
 
     getCurrentWord() {
-        return fetch(`${config.API_ENDPOINT}/language/head`, {
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
+        return fetch(`${config.API_ENDPOINT}/language/head`)
         .then(res => {
             if(!res.ok) {
                 return res.json().then(e => {
@@ -40,8 +31,7 @@ const LanguageApiService = {
     handleSubmitGuess(guess) {
         return fetch(`${config.API_ENDPOINT}/language/guess`, {
             method: 'POST',
-            headers: { 'authorization': `bearer ${TokenService.getAuthToken()}`,
-                        'content-type': 'application/json' },
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ guess })
         })
         .then(res => {

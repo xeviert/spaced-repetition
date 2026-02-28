@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from '../Header/Header';
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import LearningRoute from '../../routes/LearningRoute/LearningRoute';
@@ -21,11 +21,11 @@ export default class App extends Component {
         <Header />
         <main>
           {hasError && <p>There was an error! Oh no!</p>}
-          <Switch>
-            <Route exact path={'/'} component={DashboardRoute} />
-            <Route path={'/learn'} component={LearningRoute} />
-            <Route component={NotFoundRoute} />
-          </Switch>
+          <Routes>
+            <Route path={'/'} element={<DashboardRoute />} />
+            <Route path={'/learn'} element={<LearningRoute />} />
+            <Route path={'*'} element={<NotFoundRoute />} />
+          </Routes>
         </main>
       </div>
     );
