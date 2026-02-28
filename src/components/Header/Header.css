@@ -1,44 +1,50 @@
-header {
-    padding: 2px 10px 33px;
-    background-color: #acffc58c;
+.header-navbar {
+    padding: var(--header-padding);
+    background-color: rgba(172, 255, 197, 0.55);
+    color: var(--primary-color);
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: var(--header-shadow);
 }
 
-.header-name {
-    margin-left: 12px;
+.navbar-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-#username {
-    font-size: 18px;
+.header-title {
+    margin: 0;
+}
+
+.header-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.username {
     font-weight: bold;
-    margin-left: 10px;
+    margin-right: 20px;
 }
 
-.link {
-    float: right;
-    margin-bottom: 4px;
-    margin-right: 29px;
+.nav {
+    display: flex;
 }
 
+.nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.3s ease;
+}
 
-
-@media all and (min-width: 600px) {
-
-    header {
-        padding: 20px 23% 60px;
-    }
-
-    #username {
-        font-size: 38px;
-        font-weight: bold;
-    }
-
-    .header-name {
-        font-size: 60px;
-    }
-
-    .link {
-        float: right;
-        font-size: 40px;
-    }
-
+.nav-link:hover {
+    color: darken(var(--link-color), 20%);
 }

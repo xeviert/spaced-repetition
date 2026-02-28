@@ -2,6 +2,9 @@
   "name": "spaced-repitition",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
@@ -9,7 +12,7 @@
     "classnames": "^2.5.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-"react-router-dom": "^7.13.1"
+    "react-router-dom": "^7.13.1"
   },
   "scripts": {
     "start": "vite",
