@@ -2,24 +2,10 @@ import config from '../config';
 
 const LanguageApiService = {
   getLanguageAndWords() {
-    return fetch(`${config.API_ENDPOINT}/language`, {
-      headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
-    }).then((res) => {
-      if (!res.ok) {
-        return res.json().then((e) => {
-          Promise.reject(e);
-        });
-      } else return res.json();
-    });
-  },
-
-  getLanguageAndWords() {
     return fetch(`${config.API_ENDPOINT}/language`).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => {
-          Promise.reject(e);
+          return Promise.reject(e);
         });
       } else return res.json();
     });
@@ -29,7 +15,7 @@ const LanguageApiService = {
     return fetch(`${config.API_ENDPOINT}/language/head`).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => {
-          Promise.reject(e);
+          return Promise.reject(e);
         });
       } else {
         return res.json();
@@ -45,7 +31,7 @@ const LanguageApiService = {
     }).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => {
-          Promise.reject(e);
+          return Promise.reject(e);
         });
       } else {
         return res.json();

@@ -13,6 +13,7 @@ class LearningRoute extends Component {
     original: '',
     translation: '',
     guess: '',
+    error: null,
   };
 
   componentDidMount() {
@@ -20,48 +21,63 @@ class LearningRoute extends Component {
   }
 
   getFirstWord = () => {
-    LanguageApiService.getCurrentWord().then((res) => {
-      this.setState({
-        nextWord: res.nextWord,
-        original: res.nextWord,
-        score: res.score,
-        incorrectCount: res.incorrectCount,
-        correctCount: res.correctCount,
-        showResults: false,
+    LanguageApiService.getCurrentWord()
+      .then((res) => {
+        this.setState({
+          nextWord: res.nextWord,
+          original: res.nextWord,
+          score: res.score,
+          incorrectCount: res.incorrectCount,
+          correctCount: res.correctCount,
+          showResults: false,
+        });
+      })
+      .catch((err) => {
+        console.error('Failed to get word:', err);
+        this.setState({ error: 'Could not load word. Is the API running?' });
       });
-    });
   };
 
   getNextWord = () => {
-    LanguageApiService.getCurrentWord().then((res) => {
-      this.setState({
-        original: res.nextWord,
-        incorrectCount: res.incorrectCount,
-        correctCount: res.correctCount,
-        showNextWord: false,
+    LanguageApiService.getCurrentWord()
+      .then((res) => {
+        this.setState({
+          original: res.nextWord,
+          incorrectCount: res.incorrectCount,
+          correctCount: res.correctCount,
+          showNextWord: false,
+        });
+      })
+      .catch((err) => {
+        console.error('Failed to get word:', err);
+        this.setState({ error: 'Could not load word. Is the API running?' });
       });
-    });
   };
 
   handleGuess = (e) => {
     e.preventDefault();
 
     let guess = e.target['guess-input'].value;
-    guess = guess.toLowerCase();
+    guess = guess.trim();
     this.setState({
       guess,
     });
-    LanguageApiService.handleSubmitGuess(guess).then((data) => {
-      this.setState({
-        nextWord: data.nextWord,
-        score: data.score,
-        incorrectCount: data.incorrectCount,
-        correctCount: data.correctCount,
-        isCorrect: data.isCorrect,
-        showResults: true,
-        translation: data.translation,
+    LanguageApiService.handleSubmitGuess(guess)
+      .then((data) => {
+        this.setState({
+          nextWord: data.nextWord,
+          score: data.score,
+          incorrectCount: data.incorrectCount,
+          correctCount: data.correctCount,
+          isCorrect: data.isCorrect,
+          showResults: true,
+          translation: data.translation,
+        });
+      })
+      .catch((err) => {
+        console.error('Failed to submit guess:', err);
+        this.setState({ error: 'Could not submit guess. Is the API running?' });
       });
-    });
   };
 
   handleNextWord = () => {
@@ -77,37 +93,33 @@ class LearningRoute extends Component {
     return (
       <section>
         <div className='top-section'>
-          <p className='total-score'>Your total score is: {score}</p>
-          <div className='translate-title'>Translate the word:</div>
-          <span className='current-word-display'>{nextWord}</span>
+          <div className='score-badge'>Score: <strong>{score}</strong></div>
+          <div className='challenge-card'>
+            <span className='challenge-eyebrow'>Translate</span>
+            <span className='current-word-display'>{nextWord}</span>
+          </div>
         </div>
 
         <div className='form-section'>
           <form onSubmit={this.handleGuess}>
-            <label>What's the translation for this word?</label>
-            <br />
+            <label>What's your translation?</label>
             <input
               type='text'
               className='learn-guess-input'
               name='guess-input'
+              placeholder='Type your answer...'
               required
-            ></input>
-            <br />
+            />
             <button className='answer-sub-btn' type='submit'>
-              Submit your answer
+              Submit →
             </button>
           </form>
         </div>
 
-        <section className='bottom-section'>
-          <div className='correct-count'>
-            You have answered this word correctly {correctCount} times.
-            <br />
-          </div>
-          <div className='incorrect-count'>
-            You have answered this word incorrectly {incorrectCount} times.
-          </div>
-        </section>
+        <div className='stats-row'>
+          <div className='stat-chip stat-chip--correct'>✓ {correctCount} correct</div>
+          <div className='stat-chip stat-chip--incorrect'>✗ {incorrectCount} incorrect</div>
+        </div>
       </section>
     );
   };
@@ -115,34 +127,45 @@ class LearningRoute extends Component {
   renderResults = () => {
     let { isCorrect, guess, original, translation, score } = this.state;
     return (
-      <section className='result-page'>
-        {isCorrect ? (
-          <div>
-            <div className='response-title'>You were correct! :D</div>
-            <span></span>
+      <section className={`result-page ${isCorrect ? 'result-page--correct' : 'result-page--incorrect'}`}>
+        <div className={`response-title ${isCorrect ? 'response-title--correct' : 'response-title--incorrect'}`}>
+          {isCorrect ? '✓ Correct!' : '✗ Not quite!'}
+        </div>
+
+        <div className='word-breakdown'>
+          <div className='word-pill word-pill--original'>
+            <span className='word-pill-label'>Word</span>
+            <span className='word-pill-value'>{original}</span>
           </div>
-        ) : (
-          <div>
-            <div className='response-title'>Good try, but not quite right :/</div>
+          {!isCorrect && (
+            <div className='word-pill word-pill--wrong'>
+              <span className='word-pill-label'>Your answer</span>
+              <span className='word-pill-value word-pill-strikethrough'>{guess}</span>
+            </div>
+          )}
+          <div className='word-pill word-pill--correct'>
+            <span className='word-pill-label'>Correct answer</span>
+            <span className='word-pill-value'>{translation}</span>
           </div>
-        )}
-        <p className='result-response'>
-          The correct translation for <i> {original} </i> was {translation} and
-          you chose <i>{guess}</i> !
-        </p>
-        <div className='result-score'>Your total score is: {score}</div>
-        <button className='next-word-btn' onClick={this.handleNextWord}>
-          Try another word!
+        </div>
+
+        <div className='result-score'>Score: <strong>{score}</strong></div>
+        <button
+          className={`next-word-btn ${isCorrect ? 'next-word-btn--correct' : 'next-word-btn--incorrect'}`}
+          onClick={this.handleNextWord}
+        >
+          {isCorrect ? 'Keep it up! Next word →' : 'Try another word →'}
         </button>
       </section>
     );
   };
 
   render() {
-    let { showResults } = this.state;
+    let { showResults, error } = this.state;
     return (
       <section className='learning-route-body'>
-        {showResults ? this.renderResults() : this.showNextWord()}
+        {error && <p className="error-msg">{error}</p>}
+        {!error && (showResults ? this.renderResults() : this.showNextWord())}
       </section>
     );
   }

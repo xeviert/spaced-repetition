@@ -9,38 +9,29 @@ class DashboardRoute extends Component {
     this.state = {
       language: '',
       practiceWords: '',
+      error: null,
     };
   }
 
   componentDidMount() {
-    LanguageApiService.getLanguageAndWords().then((data) => {
-      if (data === undefined) {
-        return;
-      } else
-        this.setState({
-          language: data.language,
-        });
-      this.renderWords(data.words);
-    });
+    LanguageApiService.getLanguageAndWords()
+      .then((data) => {
+        this.setState({ language: data.language });
+        this.renderWords(data.words);
+      })
+      .catch((err) => {
+        console.error('Failed to load language data:', err);
+        this.setState({ error: 'Could not load words. Is the API running?' });
+      });
   }
 
   renderWords = (words) => {
-    let practiceWords = words.map((word) => {
-      return (
-        <li key={word.id}>
-          <h4>{word.original}</h4>
-          <p className='answer-count'>
-            correct answer count: {word.correct_count}
-          </p>
-          <p className='answer-count'>
-            incorrect answer count: {word.incorrect_count}
-          </p>
-        </li>
-      );
-    });
-    this.setState({
-      practiceWords,
-    });
+    let practiceWords = words.map((word) => (
+      <span key={word.id} className='word-bank-pill'>
+        {word.original}
+      </span>
+    ));
+    this.setState({ practiceWords });
   };
 
   getLanguage = () => {
@@ -56,7 +47,13 @@ class DashboardRoute extends Component {
 
     return (
       <section className='dashboard-section'>
+        {this.state.error && <p className="error-msg">{this.state.error}</p>}
         <h2>Your language: {this.getLanguage()}</h2>
+
+        <div className='dashboard-body'>
+          <h3>Words to practice</h3>
+          <div className='word-bank-grid'>{practiceWords}</div>
+        </div>
 
         <div className='dashboard-footer'>
           <div className='total-correct'>
@@ -66,11 +63,6 @@ class DashboardRoute extends Component {
             <button className='start-btn'>Start Practicing</button>
           </Link>
         </div>
-
-        {/* <div className='dashboard-body'>
-          <h3>Words to practice</h3>
-          <ul>{practiceWords}</ul>
-        </div> */}
       </section>
     );
   }

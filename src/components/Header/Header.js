@@ -5,9 +5,9 @@ function Header() {
   return (
     <header>
       <h1>
-        <Link className='header-name' to='/'>
+        {/* <Link className='header-name' to='/'>
           Lango
-        </Link>
+        </Link> */}
       </h1>
     </header>
   );
